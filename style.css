@@ -320,7 +320,7 @@ ul {
 
 li {
     padding: 10px;
-    background-color: #fff;
+    background-color: burlywood;
     border-radius: 5px;
     margin-bottom: 10px;
     display: flex;
@@ -544,10 +544,14 @@ li.completed {
     font-size: 4em; /* Very large font size for emphasis */
     font-family: 'Dancing Script', cursive; /* Handwritten-style font */
     background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85)); /* Gradient background */
-    -webkit-background-clip: text; /* Clip the background to the text */
-    -webkit-text-fill-color: transparent; /* Make the text color transparent */
+    -webkit-background-clip: text; /* For Safari */
+    background-clip: text; /* Standard property */
+    -webkit-text-fill-color: transparent; /* For Safari */
     margin: 0; /* Remove default margin */
 }
+
+
+
 
 /* Add a subtle shadow to the text for depth */
 .name, .welcome-back {
