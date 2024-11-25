@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><3<3<3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+
+<div class="mood-board">
+    <h2>How are you feeling today?</h2>
+    <div class="emoji-container">
+        <div class="emoji" onclick="selectMood('😊')">😊</div>
+        <div class="emoji" onclick="selectMood('😢')">😢</div>
+        <div class="emoji" onclick="selectMood('😡')">😡</div>
+        <div class="emoji" onclick="selectMood('😌')">😌</div>
+        <div class="emoji" onclick="selectMood('😴')">😴</div>
+        <div class="emoji" onclick="selectMood('😇')">😇</div>
+        <div class="emoji" onclick="selectMood('😞')">😞</div> <!-- Depressed -->
+        <div class="emoji" onclick="selectMood('😟')">😟</div> <!-- Anxious -->
+        <div class="emoji" onclick="selectMood('😩')">😩</div> <!-- Tired -->
+    </div>
+    <p id="selected-mood"></p>
+</div>
+
+<script>
+    function selectMood(mood) {
+        document.getElementById('selected-mood').textContent = `You are feeling: ${mood}`;
+    }
+</script>
+<script>
+    function selectMood(mood) {
+        let message = '';
+
+        switch(mood) {
+            case '😊':
+                message = "That's great! Keep smiling and spread the positivity!";
+                break;
+            case '😢':
+                message = "It's okay to feel sad. Reach out to someone you trust.";
+                break;
+            case '😡':
+                message = "Anger is a valid feeling. Try some deep breaths to calm down.";
+                break;
+            case '😌':
+                message = "You seem relaxed! Enjoy this calm moment.";
+                break;
+            case '😴':
+                message = "Feeling tired? Don't forget to rest and recharge!";
+                break;
+            case '😇':
+                message = "You're feeling blessed! Share your joy with others.";
+                break;
+            case '😞':
+                message = "It's tough feeling down. Remember, you’re not alone.";
+                break; // Depressed
+            case '😟':
+                message = "Anxiety can be hard. Try some grounding exercises.";
+                break; // Anxious
+            case '😩':
+                message = "Feeling tired is normal. Make sure to take breaks.";
+                break; // Tired
+            default:
+                message = "It's okay to have different feelings!";
+        }
+
+        document.getElementById('selected-mood').textContent = message;
+    }
+</script>
+<div class="quote-widget">
+    <p id="quote-text">"Believe in yourself, and all that you are."</p>
+</div>
+<div class="welcome-container">
+    <h1 class="welcome-back">Welcome back</h1>
+    <h1 class="name">Pratyush</h1>
+</div>
+
+  
+<div class="love">
+  <input id="switch" type="checkbox">
+  <label class="love-heart" for="switch">
+    <i class="left"></i>
+    <i class="right"></i>
+    <i class="bottom"></i>
+    <div class="round"></div>
+  </label>
+</div>
+<div class="spotify-widget"><iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6Xz0HJfIMJHfOG20QfVgWE?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+
+    
+    <div class="card">
+        <p class="time-text">
+            <span id="time"></span>
+            <span class="time-sub-text" id="ampm"></span>
+        </p>
+        <p class="day-text" id="date"></p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16" stroke-width="0" fill="currentColor" stroke="currentColor" class="moon">
+            <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+            <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+        </svg>
+    </div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = now.getMinutes();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12; // Convert to 12-hour format
+            const timeString = `${hours}:${minutes.toString().padStart(2, '0')}`;
+            const dateString = now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+
+            document.getElementById('time').textContent = timeString;
+            document.getElementById('ampm').textContent = ampm;
+            document.getElementById('date').textContent = dateString;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateTime();
+            setInterval(updateTime, 60000);
+        });
+    </script>
+  <div class="todo-widget">
+    <div class="todo-container">
+        <h1>To-Do List</h1>
+        <input type="text" id="task-input" placeholder="Add a new task...">
+        <button id="add-task-button">Add Task</button>
+        <ul id="task-list"></ul>
+        <div id="confetti" class="confetti" style="display: none;"></div>
+    </div>
+</div>
+<button class="btn-class-name" onclick="sendPanicEmail()">
+    <div class="back"></div>
+    <div class="front">!</div>
+</button>
+
+<script src="script.js"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,565 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+body {
+    background-image: url('./wallpaper.jpg'); /* Path to your wallpaper image */
+    background-size: cover; /* Ensures the image covers the entire screen */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Keeps the background fixed while scrolling */
+    background-position: center; /* Centers the background image */
+    font-family: Arial, sans-serif;
+    color: #333; /* Text color to ensure readability */
+}
+
+
+.card {
+   
+    width: 280px;
+    height: 150px;
+    background: rgb(17, 4, 134);
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.7) 5px 10px 50px, rgba(0, 0, 0, 0.7) -5px 0px 250px;
+    display: flex;
+    color: white;
+    justify-content: center;
+    position: absolute; /* Makes it easy to position it relative to the window */
+    top: 10px; /* Sets 10px from the top */
+    right: 10px; /* Sets 10px from the right */
+    flex-direction: column;
+    background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85));
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+  
+  .card:hover {
+    box-shadow: rgb(0,0,0) 5px 10px 50px ,rgb(0,0,0) -5px 0px 250px;
+  }
+  
+  .time-text {
+    font-size: 50px;
+    margin-top: 0px;
+    margin-left: 15px;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  .time-sub-text {
+    font-size: 15px;
+    margin-left: 5px;
+  }
+  
+  .day-text {
+    font-size: 18px;
+    margin-top: 0px;
+    margin-left: 15px;
+    font-weight: 500;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  .moon {
+    font-size: 20px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .card:hover > .moon {
+    font-size: 23px;
+  }
+  
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #e60023;
+    color: #fff;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin: 0;
+}
+#selected-mood {
+    font-size: 1.2rem;
+    margin-top: 10px; /* Space above selected mood text */
+    color: whitesmoke; /* Change this to your preferred color */
+    transition: color white 0.3s ease; /* Optional: Smooth color change */
+}
+
+
+.mood-board {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 500px; /* Width of the mood board */
+    height: 200px; /* Height of the mood board */
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    padding: 20px; /* Padding inside the mood board */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+h2 {
+    font-size: 20px; /* Font size for the question */
+    color: #ffffff; /* Change text color to white */
+    text-align: center; /* Center the text */
+    margin-bottom: -9px; /* Space below the text */
+}
+
+.emoji-container {
+    top: 10px;
+    display: flex; /* Use flexbox for emoji alignment */
+    justify-content: center; /* Center the emojis in the middle */
+    flex-wrap: wrap; /* Allow emojis to wrap if needed */
+    width: 100%; /* Full width of the mood board */
+}
+
+.emoji {
+    font-size: 40px; /* Size of the emojis */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin: 5px; /* Space around each emoji */
+    transition: transform 0.2s; /* Add a transition effect */
+}
+
+.emoji:hover {
+    transform: scale(1.2); /* Scale up the emoji on hover */
+}
+
+#selected-mood {
+    margin-top: 15px; /* Space above the selected mood text */
+    font-size: 16px; /* Font size for the selected mood message */
+    color: #ffffff; /* Text color for the selected mood */
+    text-align: center; /* Center the text */
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 10px;
+}
+
+.grid-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+}
+
+.grid-item p {
+    padding: 10px;
+    color: #333;
+    font-size: 0.9em;
+}
+.spotify-widget {
+    position: absolute; /* Allows for precise positioning */
+    top: 170px; /* Position it below the time box */
+    right: 10px; /* Position it 10px from the right edge */
+    width: 280px; /* Set a fixed width for the widget */
+    height: 400px; /* Adjust the height to fit the iframe nicely */
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    overflow: hidden; /* Ensures no overflow from rounded corners */
+}
+
+/* Adjust the iframe to fit within the square */
+.spotify-widget iframe {
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    border: none; /* Remove default border */
+}
+.todo-widget {
+    width: 300px; /* Adjust width for left margin */
+    height: 400px; /* Height of the widget */
+    background: rgba(255, 255, 255, 0.8); /* Glassy effect */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional shadow */
+    margin-left: 10px; /* Left margin */
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding-top: 25px;
+    padding: 20px; /* Padding for content */
+    overflow: hidden; /* Hide overflow initially */
+    position: relative; /* Positioning for confetti */
+    color: white;
+    
+        background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+        backdrop-filter: blur(10px); /* Apply a blur effect behind the widget */
+        border-radius: 15px; /* Rounded corners */
+        padding: 20px; /* Padding for internal spacing */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    
+    
+}
+
+.todo-container {
+    height: 100%; /* Full height of widget */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+}
+
+h1 {
+    font-size: 24px; /* Font size for title */
+    margin: 0 0 10px; /* Margin below title */
+}
+#task-input {
+    width: calc(100% - 10px); /* 100% width minus the left and right margin */
+    padding: 10px; /* Padding for better appearance */
+    margin-bottom: 10px; /* Space between input and button */
+    border: 1px solid #ccc; /* Border for the input field */
+    border-radius: 5px; /* Rounded corners */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+#add-task-button {
+    width: 100%; /* Ensure the button takes full width */
+    padding: 10px; /* Padding for button */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #4CAF50; /* Green background for the button */
+    color: white; /* White text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+#add-task-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+
+input[type="text"] {
+    width: calc(100% - 80px); /* Adjust width based on button size */
+    padding: 10px; /* Padding for input */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Border style */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 10px; /* Margin below input */
+}
+
+button {
+    width: 70px; /* Fixed width for button */
+    padding: 10px; /* Padding for button */
+    background-color: #007bff; /* Button color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#task-list {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    overflow-y: auto; /* Enable vertical scrolling */
+    flex-grow: 1; /* Grow to fill available space */
+}
+
+.task {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between task and remove button */
+    align-items: center; /* Center align items vertically */
+    padding: 10px 0; /* Padding for each task */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Light border between tasks */
+}
+
+.task.completed {
+    text-decoration: line-through; /* Strikethrough for completed tasks */
+    color: gray; /* Change color for completed tasks */
+}
+
+#confetti {
+    position: absolute; /* Positioning for confetti */
+    top: 0; /* Align to top of widget */
+    left: 0; /* Align to left of widget */
+    right: 0; /* Align to right of widget */
+    bottom: 0; /* Align to bottom of widget */
+    pointer-events: none; /* Allow clicks to pass through */
+    display: none; /* Hide initially */
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+
+li {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+li.completed {
+    text-decoration: line-through;
+    background-color: #d4edda; /* Light green for completed */
+}
+
+.confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+ 
+.btn-class-name {
+    --primary: 255, 90, 120;
+    --secondary: 150, 50, 60;
+    width: 40px; /* Smaller width */
+    height: 35px; /* Smaller height */
+    border: none;
+    outline: none;
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+    outline: 10px solid rgb(var(--primary), .5);
+    border-radius: 100%;
+    position: relative;
+    transition: .3s;
+}
+
+.btn-class-name .back {
+    background: rgb(var(--secondary));
+    border-radius: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-class-name .front {
+    background: linear-gradient(0deg, rgba(var(--primary), .6) 20%, rgba(var(--primary)) 50%);
+    box-shadow: 0 .5em 1em -0.2em rgba(var(--secondary), .5);
+    border-radius: 100%;
+    position: absolute;
+    border: 1px solid rgb(var(--secondary));
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem; /* Smaller font size */
+    font-weight: 600;
+    font-family: inherit;
+    transform: translateY(-15%);
+    transition: .15s;
+    color: rgb(var(--secondary));
+}
+
+.btn-class-name:active .front {
+    transform: translateY(0%);
+    box-shadow: 0 0;
+}
+
+/* Quote Widget */
+.quote-widget {
+    width: 520px;
+    margin-left: 200px;
+    margin-top: 55px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 100px;
+    left: 320px; /* Positioned to the right of the time box */
+    text-align: center;
+    color: #333;
+}
+
+
+
+#quote-text {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #555;
+}
+
+.love-heart:before,#switch {
+    display: none;
+   }
+   
+   .love-heart, .love-heart::after {
+    border-color: hsl(231deg 28% 86%);
+    border: 1px solid;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    width: 10px;
+    height: 8px;
+    border-bottom: 0
+   }
+   
+   .round {
+    position: absolute;
+    z-index: 1;
+    width: 8px;
+    height: 8px;
+    background: hsl(0deg 0% 100%);
+    box-shadow: rgb(0 0 0 / 24%) 0px 0px 4px 0px;
+    border-radius: 100%;
+    left: 0px;
+    bottom: -1px;
+    transition: all .5s ease;
+    animation: check-animation2 .5s forwards;
+   }
+   
+   input:checked + label .round {
+    transform: translate(0px, 0px);
+    animation: check-animation .5s forwards;
+    background-color: hsl(0deg 0% 100%);
+   }
+   
+   @keyframes check-animation {
+    0% {
+     transform: translate(0px, 0px);
+    }
+   
+    50% {
+     transform: translate(0px, 7px);
+    }
+   
+    100% {
+     transform: translate(7px, 7px);
+    }
+   }
+   
+   @keyframes check-animation2 {
+    0% {
+     transform: translate(7px, 7px);
+    }
+   
+    50% {
+     transform: translate(0px, 7px);
+    }
+   
+    100% {
+     transform: translate(0px, 0px);
+    }
+   }
+   
+   .love-heart {
+    position: absolute;
+    box-sizing: border-box;
+    position: relative;
+    transform: rotate(-45deg) translate(-50%, -33px) scale(4);
+    display: block;
+    border-color: hsl(231deg 28% 86%);
+    cursor: pointer;
+    
+    top: -120px; /* Adjust this value as desired */
+    left: 1000px; /* Adjust this value as desired */
+   }
+   
+   input:checked + .love-heart, input:checked + .love-heart::after, input:checked + .love-heart .bottom {
+    border-color: hsl(347deg 81% 61%);
+    box-shadow: inset 6px -5px 0px 2px hsl(347deg 99% 72%);
+   }
+   
+   .love-heart::after, .love-heart .bottom {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    border-color: hsl(231deg 28% 86%);
+   }
+   
+   .love-heart::after {
+    right: -9px;
+    transform: rotate(90deg);
+    top: 7px;
+   }
+   
+   .love-heart .bottom {
+    width: 11px;
+    height: 11px;
+    border-left: 1px solid;
+    border-bottom: 1px solid;
+    border-color: hsl(231deg 28% 86%);
+    left: -1px;
+    top: 5px;
+    border-radius: 0px 0px 0px 5px;
+   }
+  /* Container for welcome message */
+.welcome-container {
+    position:absolute;
+    top:20px;
+    left:590px;
+    text-align: left; /* Center text */
+}
+
+/* Styling for 'Welcome back,' text */
+.welcome-back {
+    font-size: 2.5em; /* Large font size */
+    font-weight: 300; /* Light font weight */
+    color:whitesmoke; /* Soft dark color */
+    margin: 0; /* Remove default margin */
+}
+
+.name {
+    font-size: 4em; /* Very large font size for emphasis */
+    font-family: 'Dancing Script', cursive; /* Handwritten-style font */
+    background: linear-gradient(to right, rgb(20, 30, 48), rgb(36, 59, 85)); /* Gradient background */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Make the text color transparent */
+    margin: 0; /* Remove default margin */
+}
+
+/* Add a subtle shadow to the text for depth */
+.name, .welcome-back {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Add a simple transition effect for aesthetic */
+.welcome-container h1 {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Scale up on hover for a fun effect */
+.welcome-container h1:hover {
+    transform: scale(1.05);
+}
